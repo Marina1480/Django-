@@ -23,8 +23,7 @@ DATA = {
 }
 
 
-def get_shop_list_by_dishes(request):
-    dish = request.GET.get('dish')
+def get_shop_list_by_dishes(request, dish):
     servings = int(request.GET.get('servings', 1))
     recipe = {}
     for ing, amount in DATA[dish].items():
