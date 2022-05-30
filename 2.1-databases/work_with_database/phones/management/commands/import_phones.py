@@ -1,3 +1,4 @@
+import csv
 from django.template.defaultfilters import slugify
 
 from django.core.management.base import BaseCommand
@@ -24,5 +25,5 @@ class Command(BaseCommand):
                 lte_exists=phone['lte_exists'],
                 slug=slugify(phone['name']),
             )
-
             p.save()
+
