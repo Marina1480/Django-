@@ -14,3 +14,11 @@ class Article(models.Model):
 
     def __str__(self):
         return self.title
+    
+class Tag(models.Model):
+    articles = models.ManyToManyField(Article, related_name='tags', through='ArticleTag')
+
+
+class ArticleTag(models.Model):
+    article = models.ForeignKey(Article, on_delete=models.CASCADE, related_name='tags')
+    tag = models.ForeignKey(Tag, on_delete=models.CASCADE, related_name='tags')
